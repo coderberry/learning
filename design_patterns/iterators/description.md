@@ -1,0 +1,8 @@
+Iterators Pattern
+-----------------
+
+In this chapter, we explored the two basic forms of iterators. The first, and probably more familiar, version is the external iterator, where an object points down at a member of some collection. With an internal iterator, instead of passing some sort of pointer up, we pass the code that needs to deal with the sub-objects down.
+
+We also met the Enumerable module, which can enhance the iterator experience for just about any collection. In addition, we peeked into the dark side of iterators, the shady part of town where your collection can change under your feet as you are iterating through it. Finally, we became iterator tourists, taking in the sights provided by ObjectSpace, which can reach into the Ruby interpreter and show you things you never thought you would see.
+
+Iterators in Ruby are a great example of what is right with the language. Instead of providing special-purpose external iterator objects for each aggregate class, Ruby relies on the very flexible idea of Proc objects and code blocks to build internal iterators. Because internal iterators are very easy to write—you build only one new method instead of a whole new class—Ruby encourages programmers to build what- ever iterators make sense. We can see the power of this approach in the wide array of iterators available in the standard Ruby library, where we can get at everything from each_byte in a single string to each_object in the whole Ruby interpreter.

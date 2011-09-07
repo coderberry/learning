@@ -1,0 +1,6 @@
+Command Pattern
+---------------
+
+With the Command pattern, we construct objects that know how to perform some very specific actions. The key word here is “specific.” A command instance in the Command pattern doesn’t know how to change any employee’s address; instead, it knows how to move one specific employee to his new house. Commands are useful for keeping a running list of things that your program needs to do, or for remembering what it has already done. You can also run your commands backward and undo the things that your program has done. Depending on the complexity of your commands, you can implement them either as a full-scale class or as a simple code block.
+
+The Command pattern and the Observer pattern have a lot in common. Both patterns identify an object—the command in the former pattern and the observer in the latter pattern—that is called from the other participant in the pattern. Is that object that I pass to a GUI button a command, the thing that the button will do when it is pushed, or is it an observer, waiting to be notified when the button changes state? The answer is—well, it depends. A command object simply knows how to do some- thing, but is not particularly interested in the state of the thing that executed it. Conversely, an observer is intensely interested in the state of the subject, the thing that called it.

@@ -1,0 +1,8 @@
+Adapter Pattern
+---------------
+
+There really is no magic to adapters: They exist to soak up the differences between the interfaces that we need and the objects that we have. An adapter supports the interface that we need on the outside, but it implements that interface by making calls to an object hidden inside—an object that does everything we need it to do, but does it via the wrong interface.
+
+Ruby also supports a second, albeit limited way to solve the “wrong interface” problem: We can simply modify the object with the wrong interface at runtime so that it has the right interface. In other words, we can beat the object into submission. The choice of using an adapter or modifying the object really comes down to how well you understand the class in question and the issue of encapsulation. If you know how the thing works and your interface changes are relatively minor, perhaps modifying the object is the way to go. If the object is complex or if you simply do not understand it fully, use a classic adapter.
+
+The Adapter pattern is the first member of a family of patterns we will encounter—a family of patterns in which one object stands in for another object. This family of object-oriented impostors also includes proxies and decorators. In each case, an object acts more or less as the front man for another object. As you will see in subsequent chapters, in each of these patterns the code will look vaguely familiar. At the risk of repeating myself, keep in mind that a pattern is not just about code: Intent is critical. An adapter is an adapter only if you are stuck with objects that have the wrong interface and you are trying to keep the pain of dealing with these ill-fitting interfaces from spreading throughout your system.
