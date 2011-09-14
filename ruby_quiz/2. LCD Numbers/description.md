@@ -22,7 +22,10 @@ And for this:
 
 your program should print this:
 
-    ---- |- | |-| |-|
-    |-| ||-|-|
+     -   -   -   -
+    |     | | | | |
+     -       -   -
+    | |   | | |   |
+     -       -   -
 
 Note the single column of space between digits in both examples. For other values of -s, simply lengthen the - and | bars.
