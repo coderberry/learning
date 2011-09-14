@@ -8,9 +8,13 @@ For example, if your program is called with this:
   
 the correct display is this:
 
-    --  -- -- -- ||||||||
-    | | | --| --||--||-- |||||||
-    |--| ||-- --| | --|
+     --        --   --        --
+    |  |    |    |    | |  | |
+    |  |    |    |    | |  | |
+               --   --   --   --
+    |  |    | |       |    |    |
+    |  |    | |       |    |    |
+     --        --   --        --
 
 And for this:
 
