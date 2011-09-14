@@ -15,11 +15,11 @@ The script should play the role of reader, asking the user for a series of words
 
 We’ll keep our story format very simple, using a ((...)) notation for place- holders. Here’s an example:
 
-  Our favorite language is ((a gemstone)).
+    Our favorite language is ((a gemstone)).
 
 If your program is fed that template, it should ask you to enter “a gem- stone” and then display your version of the story:
 
-  Our favorite language is Ruby.
+    Our favorite language is Ruby.
 
 That covers the simple cases, but in some instances we may want to reuse an answer. For that, we’ll introduce a way to name them:
 
