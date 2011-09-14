@@ -7,6 +7,6 @@ class Task
   end
   
   def get_time_required
-    0.0
+    raise "Must be provided in leaf"
   end
 end
