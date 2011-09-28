@@ -1,0 +1,334 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Canvas</title>
+    <style type="text/css" media="screen">
+      section {
+        float: left;
+      }
+      textarea {
+        width: 400px;
+        height: 365px;
+        margin-left: 10px;
+      }
+      hr {
+        border: 1px solid #fff;
+        height: 1px;
+        margin: 10px 0;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Draw Line (grid)</h3>
+    <div>
+      <section>
+        <canvas id="draw_line" width="500" height="375"></canvas>
+        <script type="text/javascript" charset="utf-8">
+          var draw_line_canvas = document.getElementById("draw_line");
+          var draw_line_context = draw_line_canvas.getContext("2d");
+          for (var x = 0.5; x < 500; x += 10) {
+            draw_line_context.moveTo(x, 0);
+            draw_line_context.lineTo(x, 375);
+          }
+          for (var y = 0.5; y < 375; y += 10) {
+            draw_line_context.moveTo(0, y);
+            draw_line_context.lineTo(500, y);
+          }
+          draw_line_context.strokeStyle = "#eee";
+          draw_line_context.stroke();
+        </script>
+      </section>
+      <section>
+        <textarea>
+<canvas id="draw_line" width="500" height="375"></canvas>
+<script type="text/javascript" charset="utf-8">
+  var draw_line_canvas = document.getElementById("draw_line");
+  var draw_line_context = draw_line_canvas.getContext("2d");
+  for (var x = 0.5; x < 500; x += 10) {
+    draw_line_context.moveTo(x, 0);
+    draw_line_context.lineTo(x, 375);
+  }
+  for (var y = 0.5; y < 375; y += 10) {
+    draw_line_context.moveTo(0, y);
+    draw_line_context.lineTo(500, y);
+  }
+  draw_line_context.strokeStyle = "#eee";
+  draw_line_context.stroke();
+</script>
+        </textarea>
+      </section>
+    </div>
+    
+    <hr/>
+    
+    <h3>Draw Paths</h3>
+    <div>
+      <section>
+        <canvas id="draw_paths" width="500" height="375"></canvas>
+        <script type="text/javascript" charset="utf-8">
+          var draw_paths_canvas = document.getElementById("draw_paths");
+          var draw_paths_context = draw_paths_canvas.getContext("2d");
+        
+          for (var x = 0.5; x < 500; x += 10) {
+            draw_paths_context.moveTo(x, 0);
+            draw_paths_context.lineTo(x, 375);
+          }
+          for (var y = 0.5; y < 375; y += 10) {
+            draw_paths_context.moveTo(0, y);
+            draw_paths_context.lineTo(500, y);
+          }
+          draw_paths_context.strokeStyle = "#eee";
+          draw_paths_context.stroke();
+        
+          draw_paths_context.beginPath();
+          draw_paths_context.moveTo(0, 40);
+          draw_paths_context.lineTo(240, 40);
+          draw_paths_context.moveTo(260, 40);
+          draw_paths_context.lineTo(500, 40);
+          draw_paths_context.moveTo(495, 35);
+          draw_paths_context.lineTo(500, 40);
+          draw_paths_context.lineTo(495, 45);
+        
+          draw_paths_context.moveTo(60, 0);
+          draw_paths_context.lineTo(60, 153);
+          draw_paths_context.moveTo(60, 173);
+          draw_paths_context.lineTo(60, 375);
+          draw_paths_context.moveTo(65, 370);
+          draw_paths_context.lineTo(60, 375);
+          draw_paths_context.lineTo(55, 370);
+        
+          draw_paths_context.strokeStyle = "#000";
+          draw_paths_context.stroke();
+        </script>
+      </section>
+      <section>
+        <textarea>
+<canvas id="draw_paths" width="500" height="375"></canvas>
+<script type="text/javascript" charset="utf-8">
+  var draw_paths_canvas = document.getElementById("draw_paths");
+  var draw_paths_context = draw_paths_canvas.getContext("2d");
+
+  for (var x = 0.5; x < 500; x += 10) {
+    draw_paths_context.moveTo(x, 0);
+    draw_paths_context.lineTo(x, 375);
+  }
+  for (var y = 0.5; y < 375; y += 10) {
+    draw_paths_context.moveTo(0, y);
+    draw_paths_context.lineTo(500, y);
+  }
+  draw_paths_context.strokeStyle = "#eee";
+  draw_paths_context.stroke();
+
+  draw_paths_context.beginPath();
+  draw_paths_context.moveTo(0, 40);
+  draw_paths_context.lineTo(240, 40);
+  draw_paths_context.moveTo(260, 40);
+  draw_paths_context.lineTo(500, 40);
+  draw_paths_context.moveTo(495, 35);
+  draw_paths_context.lineTo(500, 40);
+  draw_paths_context.lineTo(495, 45);
+
+  draw_paths_context.moveTo(60, 0);
+  draw_paths_context.lineTo(60, 153);
+  draw_paths_context.moveTo(60, 173);
+  draw_paths_context.lineTo(60, 375);
+  draw_paths_context.moveTo(65, 370);
+  draw_paths_context.lineTo(60, 375);
+  draw_paths_context.lineTo(55, 370);
+
+  draw_paths_context.strokeStyle = "#000";
+  draw_paths_context.stroke();
+</script>
+        </textarea>
+      </section>
+    </div>
+    
+    <hr/>
+
+    <h3>Draw Text</h3>
+    <div>
+      <section>
+        <canvas id="draw_text" width="500" height="375"></canvas>
+        <script type="text/javascript" charset="utf-8">
+          var draw_text_canvas = document.getElementById("draw_text");
+          var draw_text_context = draw_text_canvas.getContext("2d");
+
+          for (var x = 0.5; x < 500; x += 10) {
+            draw_text_context.moveTo(x, 0);
+            draw_text_context.lineTo(x, 375);
+          }
+          for (var y = 0.5; y < 375; y += 10) {
+            draw_text_context.moveTo(0, y);
+            draw_text_context.lineTo(500, y);
+          }
+          draw_text_context.strokeStyle = "#eee";
+          draw_text_context.stroke();
+
+          draw_text_context.beginPath();
+          draw_text_context.moveTo(0, 40);
+          draw_text_context.lineTo(240, 40);
+          draw_text_context.moveTo(260, 40);
+          draw_text_context.lineTo(500, 40);
+          draw_text_context.moveTo(495, 35);
+          draw_text_context.lineTo(500, 40);
+          draw_text_context.lineTo(495, 45);
+
+          draw_text_context.moveTo(60, 0);
+          draw_text_context.lineTo(60, 153);
+          draw_text_context.moveTo(60, 173);
+          draw_text_context.lineTo(60, 375);
+          draw_text_context.moveTo(65, 370);
+          draw_text_context.lineTo(60, 375);
+          draw_text_context.lineTo(55, 370);
+
+          draw_text_context.strokeStyle = "#000";
+          draw_text_context.stroke();
+          
+          draw_text_context.font = "bold 12px sans-serif";
+          
+          draw_text_context.fillText("x", 248, 43);
+          draw_text_context.fillText("y", 58, 165);
+          
+          draw_text_context.fillText("x", 248, 43);
+          draw_text_context.fillText("y", 58, 165);
+          
+          draw_text_context.textBaseline = "top";
+          draw_text_context.fillText("( 0 , 0 )", 8, 5);
+          
+          draw_text_context.textAlign = "right";
+          draw_text_context.textBaseline = "bottom";
+          draw_text_context.fillText("( 500 , 375 )", 492, 370);
+          
+        </script>
+      </section>
+      <section>
+        <textarea>
+<canvas id="draw_text" width="500" height="375"></canvas>
+<script type="text/javascript" charset="utf-8">
+  var draw_text_canvas = document.getElementById("draw_text");
+  var draw_text_context = draw_text_canvas.getContext("2d");
+
+  for (var x = 0.5; x < 500; x += 10) {
+    draw_text_context.moveTo(x, 0);
+    draw_text_context.lineTo(x, 375);
+  }
+  for (var y = 0.5; y < 375; y += 10) {
+    draw_text_context.moveTo(0, y);
+    draw_text_context.lineTo(500, y);
+  }
+  draw_text_context.strokeStyle = "#eee";
+  draw_text_context.stroke();
+
+  draw_text_context.beginPath();
+  draw_text_context.moveTo(0, 40);
+  draw_text_context.lineTo(240, 40);
+  draw_text_context.moveTo(260, 40);
+  draw_text_context.lineTo(500, 40);
+  draw_text_context.moveTo(495, 35);
+  draw_text_context.lineTo(500, 40);
+  draw_text_context.lineTo(495, 45);
+
+  draw_text_context.moveTo(60, 0);
+  draw_text_context.lineTo(60, 153);
+  draw_text_context.moveTo(60, 173);
+  draw_text_context.lineTo(60, 375);
+  draw_text_context.moveTo(65, 370);
+  draw_text_context.lineTo(60, 375);
+  draw_text_context.lineTo(55, 370);
+
+  draw_text_context.strokeStyle = "#000";
+  draw_text_context.stroke();
+
+  draw_text_context.font = "bold 12px sans-serif";
+
+  draw_text_context.fillText("x", 248, 43);
+  draw_text_context.fillText("y", 58, 165);
+
+  draw_text_context.fillText("x", 248, 43);
+  draw_text_context.fillText("y", 58, 165);
+
+  draw_text_context.textBaseline = "top";
+  draw_text_context.fillText("( 0 , 0 )", 8, 5);
+
+  draw_text_context.textAlign = "right";
+  draw_text_context.textBaseline = "bottom";
+  draw_text_context.fillText("( 500 , 375 )", 492, 370);
+
+</script>
+        </textarea>
+      </section>
+    </div>
+      
+    <hr/>
+      
+    <h3>Draw Gradients</h3>
+    <div>
+      <section>
+        <canvas id="draw_gradients" width="500" height="375"></canvas>
+        <script type="text/javascript" charset="utf-8">
+          var draw_gradients_canvas = document.getElementById("draw_gradients");
+          var draw_gradients_context = draw_gradients_canvas.getContext("2d");
+
+          var my_gradient = draw_gradients_context.createLinearGradient(0, 0, 375, 0);
+          my_gradient.addColorStop(0, "black");
+          my_gradient.addColorStop(1, "white");
+
+          draw_gradients_context.fillStyle = my_gradient;
+          draw_gradients_context.fillRect(0, 0, 500, 375);
+        </script>
+      </section>
+      <section>
+        <textarea>
+<canvas id="draw_gradients" width="500" height="375"></canvas>
+<script type="text/javascript" charset="utf-8">
+  var draw_gradients_canvas = document.getElementById("draw_gradients");
+  var draw_gradients_context = draw_gradients_canvas.getContext("2d");
+
+  var my_gradient = draw_gradients_context.createLinearGradient(0, 0, 375, 0);
+  my_gradient.addColorStop(0, "black");
+  my_gradient.addColorStop(1, "white");
+
+  draw_gradients_context.fillStyle = my_gradient;
+  draw_gradients_context.fillRect(0, 0, 500, 375);
+</script>
+        </textarea>
+      </section>
+    </div>
+    
+    <hr/>
+    
+    <h3>Draw Image</h3>
+    <div>
+      <section>
+        <canvas id="draw_image" width="500" height="375"></canvas>
+        <script type="text/javascript" charset="utf-8">
+          var draw_image_canvas = document.getElementById("draw_image");
+          var draw_image_context = draw_image_canvas.getContext("2d");
+
+          var cat = new Image();
+          cat.src = "cat.png";
+          cat.onload = function() {
+            draw_image_context.drawImage(cat, 0, 0);
+          };
+        </script>
+      </section>
+      <section>
+        <textarea>
+<canvas id="draw_gradients" width="500" height="375"></canvas>
+<script type="text/javascript" charset="utf-8">
+var draw_gradients_canvas = document.getElementById("draw_gradients");
+var draw_gradients_context = draw_gradients_canvas.getContext("2d");
+
+var my_gradient = draw_gradients_context.createLinearGradient(0, 0, 375, 0);
+my_gradient.addColorStop(0, "black");
+my_gradient.addColorStop(1, "white");
+
+draw_gradients_context.fillStyle = my_gradient;
+draw_gradients_context.fillRect(0, 0, 500, 375);
+</script>
+        </textarea>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>HTML5 Input Types</title>
+  <script src="modernizr.min.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    function isSupported(input_type) {
+      var i = document.createElement("input");
+      i.setAttribute("type", input_type);
+      if (i.type !== "text") {
+        document.write('Yes');
+      } else {
+        document.write('No');
+      }
+    }
+  </script>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>Search</td>
+      <td><input type="search" /></td>
+      <td>
+        <script type="text/javascript" charset="utf-8">
+          isSupported('search');
+        </script>
+      </td>
+    </tr>
+    <tr>
+      <td>Number</td>
+      <td><input type="number" /></td>
+      <td>
+        <script type="text/javascript" charset="utf-8">
+          isSupported('number');
+        </script>
+      </td>
+      </td>
+    </tr>
+    <tr>
+      <td>Range</td>
+      <td><input type="range" /></td>
+      <td>
+        <script type="text/javascript" charset="utf-8">
+          isSupported('range');
+        </script>
+      </td>
+    </tr>
+    <tr>
+      <td>Color</td>
+      <td><input type="color" value="#ff0000" /></td>
+      <td>
+        <script type="text/javascript" charset="utf-8">
+          isSupported('color');
+        </script>
+      </td>
+    </tr>
+    <tr>
+      <td>Tel</td>
+      <td><input type="telephone" pattern="[0-9]{3}" /></td>
+      <td>
+        <script type="text/javascript" charset="utf-8">
+          isSupported('tel');
+        </script>
+      </td>
+    </tr>
+    <tr>
+      <td>URL</td>
+      <td><input type="url" /></td>
+      <td>
+        <script type="text/javascript" charset="utf-8">
+          isSupported('url');
+        </script>
+      </td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><input type="email" /></td>
+      <td>
+        <script type="text/javascript" charset="utf-8">
+          isSupported('email');
+        </script>
+      </td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td><input type="date" /></td>
+      <td>
+        <script type="text/javascript" charset="utf-8">
+          isSupported('date');
+        </script>
+      </td>
+    </tr>
+    <tr>
+      <td>Month</td>
+      <td><input type="month" /></td>
+      <td>
+        <script type="text/javascript" charset="utf-8">
+          isSupported('month');
+        </script>
+      </td>
+    </tr>
+    <tr>
+      <td>Week</td>
+      <td><input type="week" /></td>
+      <td>
+        <script type="text/javascript" charset="utf-8">
+          isSupported('week');
+        </script>
+      </td>
+    </tr>
+    <tr>
+      <td>Time</td>
+      <td><input type="time" /></td>
+      <td>
+        <script type="text/javascript" charset="utf-8">
+          isSupported('time');
+        </script>
+      </td>
+    </tr>
+    <tr>
+      <td>DateTime</td>
+      <td><input type="datetime" /></td>
+      <td>
+        <script type="text/javascript" charset="utf-8">
+          isSupported('datetime');
+        </script>
+      </td>
+    </tr>
+    <tr>
+      <td>DateTime-Local</td>
+      <td><input type="datetime-local" /></td>
+      <td>
+        <script type="text/javascript" charset="utf-8">
+          isSupported('datetime-local');
+        </script>
+      </td>
+    </tr>
+    <tr>
+      <td>Placeholder</td>
+      <td><input type="text" placeholder="Your browser supports this" />
+      <td></td>
+    </tr>
+    <tr>
+      <td>Autofocus</td>
+      <td><input type="text" autofocus />
+      <td></td>
+    </tr>
+  </table>
+</body>
+</html>
