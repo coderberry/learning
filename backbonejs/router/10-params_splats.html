@@ -1,0 +1,61 @@
+<html>
+<head>
+  <script src="../jquery-min.js" type="text/javascript"></script>
+  <script src="../underscore.js" type="text/javascript"></script>
+  <script src="../backbone.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+<h1>Dynamic Routing - ":params" and "*splats"</h1>
+
+<p>Backbone uses two styles of variables when implementing routes. First there are ':params' which match any URL components between slashes. Then there are '*splats' which match any number of URL components. Note that due to the nature of a '*splat' it will always be the last variable in your URL as it will match any and all components.</p>
+
+<p>Any '*splats' or ':params' in route definitions are passed as variables respective order to the associated function. A route defined as '/:route/:action' will pass 2 variables(route, action) to the call back function. Which can be accessed with 'function( route, action )'. (If this is confusing please post a comment and I will try articulate it better)</p>
+
+<p>Routes are quite powerful and in an ideal world your application should never contain too many. If you need to implement hash tags with SEO in mind, do a google search for 'google seo hashbangs'.</p>
+
+<p>Remember to do a pull request for any errors you come across.</p>
+
+<script type="text/javascript" charset="utf-8">
+
+  var AppRouter = Backbone.Router.extend({
+    routes: {
+      "/posts/:id": "getPost",
+      "/download/*path": "downloadFile",
+      "/:route/:action": "loadView",
+      "*actions": "defaultRoute" // Backbone will try to match the route above first
+    },
+    getPost: function( id ){
+      // Note the variable in the route definition being passed in here
+      alert( "Get post number " + id );
+    },
+    downloadFile: function( path ){
+      // Note the variable in the route definition being passed in here
+      alert( "Downloading file: " + path );
+    },
+    loadView: function( route, action ){
+      // Note the variable in the route definition being passed in here
+      alert( route + "_" + action );
+    },
+    defaultRoute: function( actions ){
+      alert( actions );
+    }
+  });
+  
+  // Initialize the router
+  var app_router = new AppRouter;
+  
+  // Start Backbone History a necessary step for bookmarkable URL's
+  Backbone.history.start();
+  
+</script>
+
+<a href="#/posts/120">Post 120</a>
+<a href="#/download/user/images/hey.gif">Download</a>
+<a href="#/dashboard/graph">Load View</a>
+
+<p>** Notice the change in the url **</p>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head>
+  <script src="../jquery-min.js" type="text/javascript"></script>
+  <script src="../underscore.js" type="text/javascript"></script>
+  <script src="../backbone.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+<p>To attach a listener to our view, we use the "events" attribute of Backbone.View. Remember that event listeners can only be attached to child elements of the "el" property. Let us attach a "click" listener to our button.</p>
+
+<div id="search_container"></div>
+
+<script type="text/template" id="search_template">
+  <label>Search</label>
+  <input type="text" id="search_input" />
+  <input type="button" id="search_button" value="Search" />
+</script>
+
+<script type="text/javascript" charset="utf-8">
+
+  SearchView = Backbone.View.extend({
+    initialize: function(){
+      this.render();
+    },
+    render: function(){
+      // Compile the template using underscore
+      var template = _.template( $("#search_template").html(), {} );
+      
+      // Load the compiled HTML into the Backbone "el"
+      this.el.html( template );
+    },
+    events: {
+      "click input[type=button]": "doSearch"
+    },
+    doSearch: function( event ){
+      // Button clicked, you can access the element that was clicked 
+      // with event.currentTarget
+      alert( "Search for " + $("#search_input").val() );
+    }
+  })
+
+  var search_view = new SearchView({ el: $("#search_container") });
+
+</script>
+    
+</body>
+</html>

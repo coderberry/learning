@@ -1,0 +1,1 @@
+Notes taken from [http://backbonetutorials.com](http://backbonetutorials.com)

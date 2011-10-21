@@ -1,0 +1,44 @@
+<html>
+<head>
+  <script src="../jquery-min.js" type="text/javascript"></script>
+  <script src="../underscore.js" type="text/javascript"></script>
+  <script src="../backbone.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+<h1>Dynamic Routing</h1>
+
+<p>Most conventional frameworks allow you to define routes that contain a mix of static and dynamic route parameters. For example you might want to retrieve a post with a variable id with a friendly URL string. Such that your URL would look like 'http://example.com/#/posts/12'. Once this route was activated you would want to access the id given in the URL string. This example is implemented below.</p>
+
+<script type="text/javascript" charset="utf-8">
+
+  var AppRouter = Backbone.Router.extend({
+    routes: {
+      "/posts/:id": "getPost",
+      "*actions": "defaultRoute" // Backbone will try to match the route above first
+    },
+    getPost: function( id ){
+      // Note the variable in the route definition being passed in here
+      alert( "Get post number " + id );
+    },
+    defaultRoute: function( actions ){
+      alert( actions );
+    }
+  });
+  
+  // Initialize the router
+  var app_router = new AppRouter;
+  
+  // Start Backbone History a necessary step for bookmarkable URL's
+  Backbone.history.start();
+  
+</script>
+
+<a href="#/posts/120">Post 120</a>
+<a href="#/posts/130">Post 130</a>
+
+<p>** Notice the change in the url **</p>
+
+</body>
+</html>

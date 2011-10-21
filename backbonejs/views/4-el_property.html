@@ -1,0 +1,31 @@
+<html>
+<head>
+  <script src="../jquery-min.js" type="text/javascript"></script>
+  <script src="../underscore.js" type="text/javascript"></script>
+  <script src="../backbone.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+<p>The "el" property references the DOM object created in the browser. Every Backbone.js view has an "el" property, and if it not defined, Backbone.js will construct its own, which is an empty div element.</p>
+
+<p>Let us set our view's "el" property to div#search_container, effectively making Backbone.View the owner of the DOM element.</p>
+
+<p><strong>Note:</strong> Keep in mind that this binds the container element. Any events we trigger must be in this element.</p>
+
+<div id="search_container"></div>
+
+<script type="text/javascript" charset="utf-8">
+
+  SearchView = Backbone.View.extend({
+    initialize: function(){
+      alert("Alerts suck!");
+    }
+  })
+
+  var search_view = new SearchView({ el: $("#search_container") });
+
+</script>
+    
+</body>
+</html>

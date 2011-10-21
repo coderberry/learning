@@ -1,0 +1,55 @@
+<html>
+<head>
+  <script src="../jquery-min.js" type="text/javascript"></script>
+  <script src="../underscore.js" type="text/javascript"></script>
+  <script src="../backbone.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+<h1>What is a collection?</h1>
+
+<p>Backbone collections are simply an ordered set of models. Such that it can be used in situations such as:</p>
+<ul>
+  <li>Model: Student, Collection: ClassStudents</li>
+  <li>Model: Todo Item, Collection: Todo List</li>
+  <li>Model: Animals, Collection: Zoo</li>
+</ul>
+
+<p>Typically your collection will only use one type of model but models themselves are not limited to a type of collection:</p>
+
+<ul>
+  <li>Model: Student, Collection: Gym Class</li>
+  <li>Model: Student, Collection: Art Class</li>
+  <li>Model: Student, Collection: English Class</li>
+</ul>
+
+<script type="text/javascript" charset="utf-8">
+
+  // Create the model
+  var Song = Backbone.Model.extend({
+    defaults: {
+      name: "Not specified",
+      artist: "Not specified"
+    },
+    initialize: function(){
+      console.log("Music is the answer");
+    }
+  });
+  
+  // Create the collection
+  var Album = Backbone.Collection.extend({
+    model: Song
+  });
+  
+  var song1 = new Song({ name: "How Bizarre", artist: "OMC" });
+  var song2 = new Song({ name: "Dead Mans Party", artist: "Oingo Boingo" });
+  var song3 = new Song({ name: "Hammer Time", artist: "MC Hammer" });
+  
+  var myAlbum = new Album([ song1, song2, song3]);
+  console.log( myAlbum.models ); // [song1, song2, song3]
+  
+</script>
+
+</body>
+</html>

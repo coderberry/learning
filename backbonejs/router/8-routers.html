@@ -1,0 +1,44 @@
+<html>
+<head>
+  <script src="../jquery-min.js" type="text/javascript"></script>
+  <script src="../underscore.js" type="text/javascript"></script>
+  <script src="../backbone.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="../style.css" type="text/css" />
+</head>
+<body>
+
+<h1>Routers</h1>
+
+<p>Backbone routers are used for routing your applications URL's when using hash tags(#). In the traditional MVC sense they don't neccesarily fit the semantics and if you have read "What is a view?" it will elaborate on this point. Though a Backbone "router" is still very useful for any application/feature that needs URL routing/history capabilities.</p>
+
+<p>Defined routers should always contain at least one route and a function to map the particular route to. In the example below we are going to define a route that is always called.</p>
+
+<p>Also note that routes intepret anything after "#" tag in the url. All links in your application should target "#/action" or "#action". (Appending a forward slash after the hashtag looks a bit nicer e.g. http://example.com/#/user/help)</p>
+
+<script type="text/javascript" charset="utf-8">
+
+  var AppRouter = Backbone.Router.extend({
+    routes: {
+      "*actions": "defaultRoute" // matches http://example.com/#anything-here
+    },
+    defaultRoute: function( actions ){
+      // The variable passed in matches the variable in the route definition "actions"
+      alert( actions );
+    }
+  });
+  
+  // Initialize the router
+  var app_router = new AppRouter;
+  
+  // Start Backbone History a necessary step for bookmarkable URL's
+  Backbone.history.start();
+  
+</script>
+
+<a href="#action">Activate route</a>
+<a href="#/route/action">Activate another route</a>
+
+<p>** Notice the change in the url **</p>
+
+</body>
+</html>

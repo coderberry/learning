@@ -1,0 +1,40 @@
+<html>
+<head>
+  <script src="../underscore.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../backbone.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8">
+  Person = Backbone.Model.extend({
+    defaults: {
+      name: 'Fetus',
+      age: 0,
+      children: []
+    },
+    initialize: function(){
+        alert("Welcome to this world");
+        this.bind("change:name", function(){
+          var name = this.get("name"); // 'Stewie Griffin'
+          alert("Changed my name to " + name );
+        });
+        
+        // this.bind("change", function(){});
+    },
+    replaceNameAttr: function( name ){
+      this.set({ name: name });
+    }
+  });
+  var person = new Person({ name: "Thomas", age: 67, children: ['Ryan']});
+
+  // This triggers a change and will alert()
+  person.replaceNameAttr('Stewie Griffin');
+
+  var attributes = person.toJSON();
+  // or 
+  // var attributes = person.attributes;
+
+</script>
+    
+</body>
+</html>

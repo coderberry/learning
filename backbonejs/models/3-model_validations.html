@@ -1,0 +1,38 @@
+<html>
+<head>
+  <script src="../underscore.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../backbone.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8">
+  Person = Backbone.Model.extend({
+    // If you return a string from the validate function,
+    // Backbone will throw an error
+    validate: function( attributes ){
+      if( attributes.age < 0 && attributes.name != "Dr Manhatten" ){
+        return "You can't be negative years old";
+      }
+    },
+  
+    initialize: function(){
+        alert("Welcome to this world");
+        this.bind("error", function(model, error){
+          alert( error );
+        });
+    }
+  });
+
+  var person = new Person;
+  person.set({ name: 'Mary Poppins', age: -1 });
+  // This triggers an alert outputting the error
+
+  delete person;
+
+  var person = new Person;
+  person.set({ name: "Dr Manhatten", age: -1 });
+
+</script>
+    
+</body>
+</html>

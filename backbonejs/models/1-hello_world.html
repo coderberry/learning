@@ -1,0 +1,37 @@
+<html>
+<head>
+  <script src="../underscore.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../backbone.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+
+<script type="text/javascript" charset="utf-8">
+  Person = Backbone.Model.extend({
+    defaults: {
+      name: 'Fetus',
+      age: 0,
+      children: []
+    },
+    initialize: function(){
+        alert("Welcome to this world");
+    },
+    adopt: function( newChildsName ){
+      var children_array = this.get("children");
+      children_array.push( newChildsName );
+      this.set({ children: children_array });
+    }
+  });
+  var person = new Person();
+  person.set({ name: "Thomas", age: 67, children: ['Ryan'] });
+
+  var age = person.get("age"); // 67
+  var name = person.get("name"); // "Thomas"
+  var children = person.get("children"); // ['Ryan']
+
+  person.adopt('John Resig');
+  var children = person.get("children"); // ['Ryan', 'John Resig']
+
+</script>
+    
+</body>
+</html>
