@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Canvas Example 3 (Sprite Animations)</title>
+    <script charset="utf-8" src="../js/sprite.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      var fpsCount = 0;
+      var fps = 0;
+      var startTime = 0;
+      
+      var Timer = function() {
+        this.date = new Date();
+      }
+      
+      Timer.prototype.update = function() {
+        var d = new Date();
+        this.date = d;
+      }
+      
+      Timer.prototype.getMilliseconds = function() {
+        return this.date.getTime();
+      }
+      
+      Timer.prototype.getSeconds = function() {
+        return Math.round(this.date.getTime() / 1000);
+      }
+      
+      window.onload = function() {
+        var canvas = document.getElementById('myCanvas');
+        var c = canvas.getContext('2d');
+        
+        // Initialize our sprites
+        var spritesheet = '../assets/sprite_sheet.png';
+        
+        var gray   = new Sprite(spritesheet, 50, 50, 0, 0,   5, 5000);
+        var yellow = new Sprite(spritesheet, 50, 50, 0, 50,  5, 2500);
+        var red    = new Sprite(spritesheet, 50, 50, 0, 100, 5, 1666);
+        var blue   = new Sprite(spritesheet, 50, 50, 0, 150, 5, 1250);
+        var green  = new Sprite(spritesheet, 50, 50, 0, 200, 5, 1000);
+        
+        var timer = new Timer();
+        
+        c.font = '14px _sans';
+        
+        var startTime = timer.getSeconds();
+        draw(startTime);
+        
+        function draw(timeStamp) {
+          timer.update();
+          
+          if (timeStamp !== timer.getSeconds()) {
+            fps = fpsCount;
+            fpsCount = 0;
+          } else {
+            fpsCount++;
+          }
+          
+          c.fillStyle = '#FFFFFF';
+          c.fillRect(0, 0, canvas.width, canvas.height);
+          c.fillStyle = '#000000';
+          
+          gray.setPosition(40, 60);
+          gray.animate(c, timer);
+          gray.draw(c);
+          
+          yellow.setPosition(80, 100);
+          yellow.animate(c, timer);
+          yellow.draw(c);
+          
+          red.setPosition(120, 140);
+          red.animate(c, timer);
+          red.draw(c);
+          
+          blue.setPosition(160, 180);
+          blue.animate(c, timer);
+          blue.draw(c);
+          
+          green.setPosition(200, 220);
+          green.animate(c, timer);
+          green.draw(c);
+          
+          c.fillText("Elapsed Time: " + (timeStamp - startTime) + " Seconds", 10, 20);
+          c.fillText("FPS: " + fps, 10, 40);
+          
+          setTimeout(function() {
+            draw(timer.getSeconds());
+          }, 1);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="300" height="300" style="border: 1px solid black;">
+      Your browser doesn't include support for the canvas tag.
+    </canvas>
+  </body>
+</html>
