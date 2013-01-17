@@ -1,0 +1,7 @@
+<!-- 
+  `ng-init` specifies initialization tasks to be executed before the template enters 
+  execution mode during bootstrap 
+-->
+<div class="container" ng-init="$root.pageTitle = pageHeader">
+  <h1 ng-bind="pageHeader"></h1>
+</div>

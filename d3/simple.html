@@ -1,0 +1,54 @@
+<html>
+<head>
+  <title>Simple D3JS</title>
+  <script src="http://d3js.org/d3.v2.js"></script>
+  <style type="text/css">
+    .speed_bar {
+      width: 300px;
+      height: 40px;
+      background-color: #efefef;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="speed_bar"></div>
+
+<script type="text/javascript">
+
+var svg = d3.select(".speed_bar").append("svg");
+var rect = svg.append("rect");
+
+
+// var gradient = svg.append("svg:defs")
+//   .append("svg:linearGradient")
+//     .attr("id", "gradient")
+//     .attr("x1", "0%")
+//     .attr("y1", "100%")
+//     .attr("x2", "100%")
+//     .attr("y2", "100%")
+//     .attr("spreadMethod", "pad");
+
+// gradient.append("svg:stop")
+//     .attr("offset", "0%")
+//     .attr("stop-color", "#ff0")
+//     .attr("stop-opacity", 1)
+
+// gradient.append("svg:stop")
+//     .attr("offset", "100%")
+//     .attr("stop-color", "#f00")
+//     .attr("stop-opacity", 1)
+
+// var speedBarContainer = svg.append("svg:rect")
+//     .attr("x", 2)
+//     .attr("y", 2)
+//     .attr("width", 0)
+//     .attr("height", 32);
+
+// speedBarContainer.transition().duration(2000).delay(200).attr("width", 280)
+    // .attr("fill", "url(#gradient)");
+</script>
+
+</body>
+</html>

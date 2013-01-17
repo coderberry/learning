@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app="components">
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+  <script type="text/javascript" src="components.js"></script>
+  <script type="text/javascript" src="beers.js"></script>
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <br/><br/>
+  <div class="container">
+    <div class="row">
+      <div class="well span6 offset3">
+        <h2>Tabs:</h2>
+        <tabs>
+          <pane title="Localization">
+            Date: {{ '2012-04-01' | date:'fullDate' }} <br>
+            Currency: {{ 123456 | currency }} <br>
+            Number: {{ 98765.4321 | number }} <br>
+          </pane>
+
+          <pane title="Pluralization">
+            <div ng-controller="BeerCounter">
+              Locale: {{localeId}}
+              <div ng-repeat="beerCount in beers">
+                <ng-pluralize count="beerCount" when="beerForms"></ng-pluralize>
+              </div>
+            </div>
+          </pane>
+        </tabs>
+        
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
