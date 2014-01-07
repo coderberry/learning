@@ -1,0 +1,11 @@
+{
+  "framework": "qunit",
+  "src_files": [
+    "bower_components/jquery/jquery.js",
+    "lib/sinon-1.7.3.js",
+    "lib/sinon-qunit-1.0.0.js",
+    "js/*.js",
+    "specs/*.js"
+  ],
+  "launch_in_dev": [ "PhantomJS", "Chrome" ]
+}
