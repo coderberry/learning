@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>props.children</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="http://fb.me/react-0.8.0.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.8.0.js"></script>
+  <style>
+    body { margin: 25px; }
+  </style>
+</head>
+<body>
+<script type="text/jsx">
+  /*** @jsx React.DOM */
+  var APP = React.createClass({
+    render: function() {
+      return (
+        <BButton>I <BHeart /> React</BButton>
+      )
+    }
+  });
+
+  var BButton = React.createClass({
+    render: function() {
+      return <a className="btn btn-primary">{this.props.children}</a>
+    }
+  });
+
+  var BHeart = React.createClass({
+    render: function() {
+      return <span className="glyphicon glyphicon-heart"></span>
+    }
+  });
+
+  React.renderComponent(
+    <APP />,
+    document.body);
+</script>
+
+</body>
+</html>

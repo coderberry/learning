@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Tightly Coupled Components (before)</title>
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="output"></div>
+    <script type="text/javascript">
+      // What happens if we change the name of a function on polls? it would break the other object.
+
+      var polls = {
+        add: function(poll) { 
+          $.post('/polls', poll);
+        },
+        getList: function(callback) { 
+          $.get('/polls', function(data) {
+            callback(data.list);
+          });
+        }
+      };
+
+      var submit = { 
+        add: function(poll) { 
+          polls.add(poll);
+        }
+      };
+
+      var view = {
+        init: function() {
+          polls.getList(this.render);
+        },
+        render: function(list) {
+          list.forEach(function(poll) {
+            $("<li>" + poll + "</li>").appendTo("#output");
+          });
+        }
+      };
+
+      submit.add("What is your favorite color?");
+      submit.add("What programming language do you like best?");
+      submit.add("Do you enjoy Visual Basic 6?");
+      submit.add("Have you ever pair programmed before?");
+      submit.add("Do you unit test your code?");
+
+      view.init();
+    </script>
+  </body>
+</html>

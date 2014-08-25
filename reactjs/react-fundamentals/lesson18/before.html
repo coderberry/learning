@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Link</title>
+  <script src="http://fb.me/react-0.9.0.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.9.0.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/jsx">
+  /*** @jsx React.DOM */
+  var APP = React.createClass({
+    getInitialState: function() {
+      return {
+        name: '',
+        email: ''
+      }
+    },
+    update: function() {
+      this.setState({
+        name: this.refs.name.getDOMNode().value,
+        email: this.refs.email.getDOMNode().value,
+      });
+    },
+    render: function() {
+      return (
+        <form>
+          <div>
+            <input ref="name" onChange={this.update} type="text" placeholder="Name" />
+            <label>*{this.state.name}*</label>
+          </div>
+          <div>
+            <input ref="email" onChange={this.update} type="text" placeholder="Email" />
+            <label>*{this.state.email}*</label>
+          </div>
+        </form>
+      )
+    }
+  });
+
+  React.renderComponent(<APP />, document.getElementById('app'));
+</script>
+
+</body>
+</html>

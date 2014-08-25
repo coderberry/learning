@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Link</title>
+  <script src="http://fb.me/react-with-addons-0.9.0.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.9.0.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/jsx">
+  /*** @jsx React.DOM */
+  var APP = React.createClass({
+    mixins: [React.addons.LinkedStateMixin],
+    getInitialState: function() {
+      return {
+        name: '',
+        email: '',
+        phone: ''
+      }
+    },
+    render: function() {
+      return (
+        <form>
+          <div>
+            <input valueLink={this.linkState('name')} type="text" placeholder="Name" />
+            <label>*{this.state.name}*</label>
+          </div>
+          <div>
+            <input valueLink={this.linkState('email')} type="text" placeholder="Email" />
+            <label>*{this.state.email}*</label>
+          </div>
+          <div>
+            <input valueLink={this.linkState('phone')} type="text" placeholder="Phone" />
+            <label>*{this.state.phone}*</label>
+          </div>
+        </form>
+      )
+    }
+  });
+
+  React.renderComponent(<APP />, document.getElementById('app'));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>First Component</title>
+  <script src="http://fb.me/react-0.8.0.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.8.0.js"></script>
+</head>
+<body>
+<script type="text/jsx">
+  /*** @jsx React.DOM */
+  var APP = React.createClass({
+    getDefaultProps: function() {
+      return {
+        txt: 'Default h1 text',
+        cat: 0
+      }
+    },
+    propTypes: {
+      txt: React.PropTypes.string,
+      cat: React.PropTypes.number.isRequired // This is a required prop
+    },
+    render: function() {
+      console.log(this.props.txt);
+      return (
+        <div>
+          <h1>{this.props.txt}</h1>
+          <b>{this.props.cat}</b>
+        </div>
+      )
+    }
+  });
+
+  //React.renderComponent(<APP cat={5} txt="this is the txt prop" />, document.body);
+  React.renderComponent(<APP />, document.body);
+</script>
+
+</body>
+</html>

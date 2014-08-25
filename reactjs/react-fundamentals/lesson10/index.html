@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Component Lifecycle: Mounting Usages</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="http://fb.me/react-0.8.0.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.8.0.js"></script>
+  <style>
+    body { margin: 25px; }
+  </style>
+</head>
+<body>
+
+<button onClick="render()">Render</button>
+<button onClick="unmount()">Unmount</button>
+<hr/>
+<div id="panel"></div>
+
+<script type="text/jsx">
+  /*** @jsx React.DOM */
+  var APP = React.createClass({
+    update: function() {
+      var newVal = this.props.val + 1;
+      this.setProps({ val: newVal });
+    },
+    componentWillMount: function() {
+      this.setState({ m: 2 });
+      if (this.props.val === 0) {
+        this.btnStyle = { 'color': 'red' };
+      }
+    },
+    render: function() {
+      return (
+        <button
+          style={this.btnStyle}
+          onClick={this.update}>
+          {this.props.val * this.state.m}
+        </button>
+      )
+    },
+    componentDidMount: function(rootNode) {
+      console.log(rootNode);
+      this.inc = setInterval(this.update, 500);
+    },
+    componentWillUnmount: function() {
+      clearInterval(this.inc);
+    }
+  });
+
+  window.render = function() {
+    React.renderComponent(
+      <APP val={0} />,
+      document.getElementById('panel'));
+  };
+
+  window.unmount = function() {
+    React.unmountComponentAtNode(document.getElementById('panel'));
+  };
+</script>
+
+</body>
+</html>

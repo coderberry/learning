@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mixins</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="http://fb.me/react-0.8.0.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.8.0.js"></script>
+  <style>
+    body { margin: 25px; }
+  </style>
+</head>
+<body>
+
+<script type="text/jsx">
+  /*** @jsx React.DOM */
+
+  var ReactMixin = {
+    componentWillMount: function() {
+      console.log("componentWillMount");
+    },
+    getInitialState: function() {
+      return { count: 0 };
+    },
+    incrementCount: function() {
+      this.setState({ count: this.state.count + 1 });
+    }
+  };
+
+  var APP = React.createClass({
+    render: function() {
+      return (
+        <div>
+          <buttonComponent txt="this is the button" />
+          <inputComponent txt="this is the input" />
+        </div>
+      )
+    }
+  });
+
+  var buttonComponent = React.createClass({
+    mixins: [ReactMixin],
+    render: function() {
+      return <button onClick={this.incrementCount}>{this.props.txt} - {this.state.count}</button>
+    }
+  });
+
+  var inputComponent = React.createClass({
+    mixins: [ReactMixin],
+    componentWillMount: function() {
+      setInterval(this.incrementCount, 1000);
+    },
+    render: function() {
+      return <input value={this.props.txt + ' - ' + this.state.count} />
+    }
+  });
+
+  React.renderComponent(
+    <APP />,
+    document.body);
+</script>
+
+</body>
+</html>

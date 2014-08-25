@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Owner-ownee</title>
+  <script src="http://fb.me/react-0.8.0.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.8.0.js"></script>
+</head>
+<body>
+<script type="text/jsx">
+  /*** @jsx React.DOM */
+  var APP = React.createClass({
+    getInitialState: function() {
+      return { txt: 'this is my state txt', id: 0 }
+    },
+    updateTxt: function(e) {
+      this.setState({ txt: e.target.value });
+    },
+    render: function() {
+      return (
+        <div>
+          <Widget txt={this.state.txt} update={this.updateTxt} />
+          <Widget txt={this.state.txt} update={this.updateTxt} />
+          <Widget txt={this.state.txt} update={this.updateTxt} />
+          <Widget txt={this.state.txt} update={this.updateTxt} />
+          <Widget txt={this.state.txt} update={this.updateTxt} />
+        </div>
+      )
+    }
+  });
+
+  var Widget = React.createClass({
+    render: function() {
+      return (
+        <div>
+          <input type="text" onChange={this.props.update} />
+          <h1>{this.props.txt}</h1>
+        </div>
+      )
+    }
+  });
+
+  React.renderComponent(<APP txt="this is the txt prop" />, document.body);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Component Lifecycle: Updating</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="http://fb.me/react-0.8.0.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.8.0.js"></script>
+  <style>
+    body { margin: 25px; }
+  </style>
+</head>
+<body>
+
+<button onClick="render()">Render</button>
+<button onClick="unmount()">Unmount</button>
+<hr/>
+<div id="panel"></div>
+
+<script type="text/jsx">
+  /*** @jsx React.DOM */
+  var APP = React.createClass({
+    getInitialState: function() {
+      return { increasing: false };
+    },
+    update: function() {
+      var newVal = this.props.val + 1;
+      this.setProps({ val: newVal });
+    },
+    componentWillReceiveProps: function(nextProps) {
+      this.setState({ increasing: nextProps.val > this.props.val });
+    },
+    shouldComponentUpdate: function(nextProps, nextState) {
+      return nextProps.val % 5 === 0;
+    },
+    componentWillUpdate: function(nextProps, nextState) {
+      console.log("nextProps === " + JSON.stringify(nextProps));
+    },
+    render: function() {
+      console.log(this.state.increasing);
+      return (
+        <button
+          onClick={this.update}>
+          {this.props.val}
+        </button>
+      )
+    },
+    componentDidUpdate: function(prevProps, prevState, rootNode) {
+      console.log("PrevProps === " + JSON.stringify(prevProps));
+    }
+  });
+
+  React.renderComponent(
+    <APP val={0} />,
+    document.getElementById('panel'));
+</script>
+
+</body>
+</html>

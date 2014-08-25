@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>transferPropsTo</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="http://fb.me/react-0.8.0.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.8.0.js"></script>
+  <style>
+    body { margin: 25px; }
+  </style>
+</head>
+<body>
+<script type="text/jsx">
+  /*** @jsx React.DOM */
+  var APP = React.createClass({
+    render: function() {
+      return (
+        <div>
+          <BButton className="btn-primary" href="javascript:alert('hello');">
+            <BIcon className="glyphicon-heart" /> Button</BButton>
+          <BButton className="btn-success" href="javascript:alert('hi');">
+            <BIcon className="glyphicon-pencil" /> Button</BButton>
+          <BButton className="btn-danger" href="javascript:alert('hola');">
+            <BIcon className="glyphicon-inbox" /> Button</BButton>
+        </div>
+      )
+    }
+  });
+
+  var BButton = React.createClass({
+    render: function() {
+      return this.transferPropsTo(
+        <a className="btn">{this.props.children}</a>
+      )
+    }
+  });
+
+  var BIcon = React.createClass({
+    render: function() {
+      return this.transferPropsTo(
+        <span className="glyphicon"></span>
+      );
+    }
+  });
+
+  React.renderComponent(
+    <APP />,
+    document.body);
+</script>
+
+</body>
+</html>

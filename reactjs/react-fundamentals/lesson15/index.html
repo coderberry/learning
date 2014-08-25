@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSX Browser Compiler</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="http://fb.me/react-0.8.0.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.8.0.js"></script>
+  <style>
+    pre, textarea { height: 1000px !important }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div id="app"></div>
+</div>
+<script type="text/jsx" src="Transformer.js"></script>
+<script type="text/jsx">
+  /*** @jsx React.DOM */
+  React.renderComponent(
+    <Transformer />,
+    document.getElementById('app')
+  );
+</script>
+
+</body>
+</html>
