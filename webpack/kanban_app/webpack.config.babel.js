@@ -9,8 +9,14 @@ const PATHS = {
   build: path.join(__dirname, 'build')
 };
 
+process.env.BABEL_ENV = TARGET;
+
 var common = {
   entry: PATHS.app,
+  // add resolve.extensions to allow referring to JSX files without an extension
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   output: {
     path: PATHS.build,
     filename: 'bundle.js'
@@ -22,6 +28,11 @@ var common = {
 
         // loaders are evaluated right to left
         loaders: ['style', 'css'],
+        include: PATHS.app
+      },
+      {
+        test: /\.jsx?$/,
+        loaders: ['babel'],
         include: PATHS.app
       }
     ]
