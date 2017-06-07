@@ -1,8 +1,6 @@
-https://www.udemy.com/the-complete-elixir-and-phoenix-bootcamp-and-tutorial/learn/v4/t/lecture/5911588?start=0
-
 # Cards
 
-**TODO: Add description**
+https://www.udemy.com/the-complete-elixir-and-phoenix-bootcamp-and-tutorial
 
 ## Installation
 
