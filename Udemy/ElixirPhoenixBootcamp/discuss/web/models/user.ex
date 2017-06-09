@@ -7,6 +7,8 @@ defmodule Discuss.User do
     field :token, :string
     field :avatar_url, :string
 
+    has_many :topics, Discuss.Topic, on_delete: :delete_all
+
     timestamps()
   end
 
